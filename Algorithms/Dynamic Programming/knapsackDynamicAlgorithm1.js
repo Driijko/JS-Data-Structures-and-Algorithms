@@ -23,6 +23,7 @@ const objects = [
 
 function dynamicAlgorithm(objects, maxWeight) {
   
+  const takeThese = [];
   const results = [];
   
   for (const [i, object] of objects.entries()) {      
@@ -44,8 +45,6 @@ function dynamicAlgorithm(objects, maxWeight) {
             bestChoiceForRemainingSpace = results[i - 1][j - object.weight];
           }
 
-          console.log(object.value + bestChoiceForRemainingSpace)
-
           if (results[i - 1][j - 1] < (object.value + bestChoiceForRemainingSpace)) {
             row[j - 1] = object.value + bestChoiceForRemainingSpace;
           }
@@ -63,10 +62,12 @@ function dynamicAlgorithm(objects, maxWeight) {
         // We check to see if the object will fit in a backpack of capacity 'j'
         if (object.weight <= j) {
           row[j - 1] = object.value;
+
+
         }
         // Otherwise we give a value of zero. 
         else {
-          row[j - 1] = 0;
+          row[j - 1] = null;
         }
       }
     }
