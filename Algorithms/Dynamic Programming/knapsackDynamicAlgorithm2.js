@@ -1,54 +1,54 @@
-// const objects = [
-//   {
-//     name: "guitar",
-//     weight: 1,
-//     value: 1500
-//   },
-//   {
-//     name: "stereo", 
-//     weight: 3,
-//     value: 3000
-//   },
-//   {
-//     name: "laptop",
-//     weight: 4,
-//     value: 4000
-//   }
-// ]
-
 const objects = [
   {
-    name: "water",
+    name: "guitar",
+    weight: 1,
+    value: 1500
+  },
+  {
+    name: "stereo", 
     weight: 3,
-    value: 10
-  }, 
-  {
-    name: "book",
-    weight: 1,
-    value: 3
+    value: 3000
   },
   {
-    name: "food",
-    weight: 2,
-    value: 9
-  },
-  {
-    name: "jacket",
-    weight: 2, 
-    value: 5
-  },
-  {
-    name: "camera",
-    weight: 1,
-    value: 6
+    name: "laptop",
+    weight: 4,
+    value: 4000
   }
 ]
+
+// const objects = [
+//   {
+//     name: "water",
+//     weight: 3,
+//     value: 10
+//   }, 
+//   {
+//     name: "book",
+//     weight: 1,
+//     value: 3
+//   },
+//   {
+//     name: "food",
+//     weight: 2,
+//     value: 9
+//   },
+//   {
+//     name: "jacket",
+//     weight: 2, 
+//     value: 5
+//   },
+//   {
+//     name: "camera",
+//     weight: 1,
+//     value: 6
+//   }
+// ]
 
 function knapsackDynamicAlgorithm(objects, maxWeight) {
 
   const results = [];
 
-  // For each object being assessed, we create an array, 'row'
+  // For each object being assessed, we create a 'row' array. 
   for (const [i, object] of objects.entries()) {
     const row = [];
 
@@ -124,17 +124,20 @@ function knapsackDynamicAlgorithm(objects, maxWeight) {
 
       // If we have arrived at the end of our calculations, then we are ready to publish the results. 
       if (i === objects.length - 1 && j === maxWeight) {
+        let finalValue = 0;
         console.log(`You should take the following items:`)
         for (const index of currentBestChoice) {
-          console.log(`${objects[index].name}`)
+          console.log(`${objects[index].name}`);
+          finalValue += objects[index].value;
         }
+        console.log(`For a total value of ${finalValue}`)
       }
     }
 
     results.push(row);
   }
 
-  // console.log(results);
+  console.log(results);
 }
 
-knapsackDynamicAlgorithm(objects, 6);
+knapsackDynamicAlgorithm(objects, 4);

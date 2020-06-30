@@ -2,7 +2,7 @@
 // The scenario being modelled: You are a baker trying to decide how many loaves to bake on a given day
 // The factors that affect your choice: How's the weather (scale of 1 - 5), is it a holiday or weekend (1 for yes,
 // 0 for no), is it a game day (1 for yes, 0 for no). The 'value' property indicates how many loaves were
-// sold on a previous day. 
+// sold on the given day data was recorded from. 
 
 const today = {
   weather: 4,
@@ -75,6 +75,7 @@ function similarityRank(current, data) {
   for (const node in data) {
     similarity[node] = distance(current, data[node]);
   }
+  console.log(similarity);
   return similarity;
 }
 
@@ -95,6 +96,7 @@ function nNearest(similarityRank, numNearest) {
       }
     }
   }
+  console.log(nMostSimilar);
   return nMostSimilar;
 }
 
