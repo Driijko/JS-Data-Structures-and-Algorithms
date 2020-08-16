@@ -14,6 +14,7 @@ const objects = [
     weight: 4,
     value: 4000
   }
+
 ]
 
 // const objects = [

@@ -23,7 +23,6 @@ const objects = [
 
 function dynamicAlgorithm(objects, maxWeight) {
   
-  const takeThese = [];
   const results = [];
   
   for (const [i, object] of objects.entries()) {      
